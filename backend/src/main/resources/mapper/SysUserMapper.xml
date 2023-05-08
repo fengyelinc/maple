@@ -3,18 +3,8 @@
 <mapper namespace="com.cc.backend.mapper.SysUserMapper">
     <sql id="Base_Column_List">
         id,
-        name,
-        account,
-        phone,
-        email,
-        sex,
         password,
-        is_frozen,
-        is_del,
-        create_by,
-        create_time,
-        update_by,
-        update_time,
+        user_name,
         <!--ɾ�����һ��,-->
     </sql>
 </mapper>

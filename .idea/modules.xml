@@ -3,7 +3,8 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/backend/backend.iml" filepath="$PROJECT_DIR$/backend/backend.iml" />
-      <module fileurl="file://$PROJECT_DIR$/.idea/maple.iml" filepath="$PROJECT_DIR$/.idea/maple.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/maple-cloud.iml" filepath="$PROJECT_DIR$/.idea/maple-cloud.iml" />
+      <module fileurl="file://$PROJECT_DIR$/maple-ui/maple-ui.iml" filepath="$PROJECT_DIR$/maple-ui/maple-ui.iml" />
     </modules>
   </component>
 </project>

@@ -1,13 +1,12 @@
 package com.cc.backend;
 
-import org.junit.jupiter.api.Test;
+
 import org.springframework.boot.test.context.SpringBootTest;
+
+import java.util.HashMap;
 
 @SpringBootTest
 class BackendApplicationTests {
 
-    @Test
-    void contextLoads() {
-    }
 
 }
