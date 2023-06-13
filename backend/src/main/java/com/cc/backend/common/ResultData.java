@@ -14,8 +14,7 @@ public class ResultData {
 
 
     public ResultData() {
-        this.code = StatusCode.SUCCESS.getCode();
-        this.msg = StatusCode.SUCCESS.getMsg();
+
     }
 
     public ResultData(String code, String msg, Map<String, Object> data) {

@@ -5,7 +5,7 @@ import com.cc.backend.dao.SysUser;
 
 public interface SysUserService extends IService<SysUser> {
 
-    public SysUser getByEmail(String email);
+     SysUser getByEmailOrPhone(String email,String phone);
 
 }
 
