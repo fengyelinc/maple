@@ -4,7 +4,8 @@ public enum StatusCode {
     SUCCESS("200","success"),
     FAIL("500","fail"),
     METHOD_ARGUMENT_NOT_VALID("100001","参数异常"),
-    NOT_FOUND("100002","资源未找到");
+    NOT_FOUND("100002","资源未找到"),
+    NO_AUTH("100003","没有权限，请先登录！");
 
     public String code;
     public String msg;

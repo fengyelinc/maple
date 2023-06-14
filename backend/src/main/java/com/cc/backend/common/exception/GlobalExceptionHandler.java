@@ -26,4 +26,19 @@ public class GlobalExceptionHandler {
         resultData.setMsg(result.getFieldError().getDefaultMessage());
         return resultData;
     }
+
+    /**
+     * 这个不能定义在切面里面，不然不生效
+     * @param e
+     * @return
+     */
+    @ExceptionHandler(RuntimeException.class)
+    public ResultData handle(RuntimeException e) {
+        if ("notLogin".equals(e.getMessage())) {
+            ResultData resultData = new ResultData(StatusCode.NO_AUTH.getCode(),StatusCode.NO_AUTH.getMsg());
+            return resultData;
+        }
+        ResultData data = new ResultData(StatusCode.FAIL.getCode(), e.getMessage());
+        return data;
+    }
 }

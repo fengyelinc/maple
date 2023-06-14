@@ -55,7 +55,7 @@ public class LoginController {
         String token =null;
         try {
              token = JwtUtils.generTokenByRS256(sysUser);
-            redisUtil.set(sysUser.getId()+sysUser.getEmail(),token,3600);
+            redisUtil.set(sysUser.getEmail(),token,3600);
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -77,10 +77,8 @@ public class LoginController {
     @PostMapping("/login")
     public ResultData login(@RequestBody LoginInfoDTO loginInfoDTO) {
         ResultData resultData = new ResultData();
-        //1、判断是否有token
-        //2、校验token是否失效
-        //3、校验密码
-        //4、获取身份信息(基础信息，权限)
+        //1、校验密码
+        //2、获取身份信息(基础信息，权限)
 
         return resultData;
     }

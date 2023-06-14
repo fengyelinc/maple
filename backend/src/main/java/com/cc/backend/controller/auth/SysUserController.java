@@ -1,4 +1,4 @@
-package com.cc.backend.controller;
+package com.cc.backend.controller.auth;
 
 import com.cc.backend.dao.SysUser;
 import com.cc.backend.service.SysUserService;

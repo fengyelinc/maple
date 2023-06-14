@@ -8,9 +8,9 @@ import java.util.Map;
 @Data
 public class ResultData {
 
-    public String code;
-    public String msg;
-    public Map<String,Object> data;
+    private String code;
+    private String msg;
+    private Map<String,Object> data;
 
 
     public ResultData() {
