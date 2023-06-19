@@ -3,6 +3,70 @@
   <component name="EasyCodeTableSetting">
     <option name="tableInfoMap">
       <map>
+        <entry key="maple.permission">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="id" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="name" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Permission" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="backend" />
+              <option name="savePackageName" value="com.cc.backend" />
+              <option name="savePath" value="./backend/src/main/java/com/cc/backend" />
+              <option name="templateGroupName" value="MyTemplete" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="maple.role">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="id" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="name" />
+                    <option name="type" value="java.lang.String" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="Role" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="backend" />
+              <option name="savePackageName" value="com.cc.backend" />
+              <option name="savePath" value="./backend/src/main/java/com/cc/backend" />
+              <option name="templateGroupName" value="MyTemplete" />
+            </TableInfoDTO>
+          </value>
+        </entry>
         <entry key="maple.sys_menu">
           <value>
             <TableInfoDTO>
@@ -203,9 +267,6 @@
                   </ColumnInfoDTO>
                   <ColumnInfoDTO>
                     <option name="custom" value="false" />
-                    <option name="ext">
-                      <map />
-                    </option>
                     <option name="name" value="userName" />
                     <option name="type" value="java.lang.String" />
                   </ColumnInfoDTO>
@@ -241,6 +302,70 @@
                 </list>
               </option>
               <option name="name" value="SysUserRole" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="backend" />
+              <option name="savePackageName" value="com.cc.backend" />
+              <option name="savePath" value="./backend/src/main/java/com/cc/backend" />
+              <option name="templateGroupName" value="MyTemplete" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="maple.user_permission">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="uid" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="pid" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="UserPermission" />
+              <option name="preName" value="" />
+              <option name="saveModelName" value="backend" />
+              <option name="savePackageName" value="com.cc.backend" />
+              <option name="savePath" value="./backend/src/main/java/com/cc/backend" />
+              <option name="templateGroupName" value="MyTemplete" />
+            </TableInfoDTO>
+          </value>
+        </entry>
+        <entry key="maple.user_role">
+          <value>
+            <TableInfoDTO>
+              <option name="fullColumn">
+                <list>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="uid" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                  <ColumnInfoDTO>
+                    <option name="custom" value="false" />
+                    <option name="ext">
+                      <map />
+                    </option>
+                    <option name="name" value="rid" />
+                    <option name="type" value="java.lang.Long" />
+                  </ColumnInfoDTO>
+                </list>
+              </option>
+              <option name="name" value="UserRole" />
               <option name="preName" value="" />
               <option name="saveModelName" value="backend" />
               <option name="savePackageName" value="com.cc.backend" />

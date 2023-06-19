@@ -2,10 +2,10 @@ package com.cc.backend.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.apache.ibatis.annotations.Mapper;
-import com.cc.backend.dao.entity.SysUser;
+import com.cc.backend.dao.entity.UserRole;
 
 @Mapper
-public interface SysUserMapper extends BaseMapper<SysUser> {
+public interface UserRoleMapper extends BaseMapper<UserRole> {
 
 }
 

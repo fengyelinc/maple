@@ -1,4 +1,4 @@
-package com.cc.backend.dao;
+package com.cc.backend.dao.entity;
 
 import com.baomidou.mybatisplus.annotation.IdType;
 import com.baomidou.mybatisplus.annotation.TableField;
@@ -14,6 +14,8 @@ public class SysUser {
     @TableId(type = IdType.AUTO)
     private Long id;
 
+    @TableField(value = "account")
+    private String account;
     @TableField(value = "user_name")
     private String username;
     @TableField(value = "email")

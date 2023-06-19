@@ -6,7 +6,7 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.auth0.jwt.interfaces.JWTVerifier;
 import com.alibaba.fastjson.JSON;
-import com.cc.backend.dao.SysUser;
+import com.cc.backend.dao.entity.SysUser;
 
 import java.util.Date;
 import java.util.UUID;

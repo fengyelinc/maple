@@ -17,6 +17,16 @@ public class ResultData {
 
     }
 
+    public ResultData(String success) {
+        if(success.equals("success")){
+            this.code = StatusCode.SUCCESS.getCode();
+            this.msg = StatusCode.SUCCESS.getMsg();
+        }else{
+            this.code = StatusCode.FAIL.getCode();
+            this.msg = StatusCode.FAIL.getMsg();
+        }
+    }
+
     public ResultData(String code, String msg, Map<String, Object> data) {
         this.code = code;
         this.msg = msg;
