@@ -1,6 +1,7 @@
 package com.cc.backend.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
+import com.cc.backend.dao.entity.Role;
 import com.cc.backend.dao.entity.SysUser;
 
 public interface SysUserService extends IService<SysUser> {
@@ -10,5 +11,7 @@ public interface SysUserService extends IService<SysUser> {
     SysUser getByAccount(String account);
 
     SysUser register(SysUser sysUser);
+
+    Long getRoleId(Long uid);
 }
 

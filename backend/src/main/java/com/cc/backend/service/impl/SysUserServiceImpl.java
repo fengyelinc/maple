@@ -1,8 +1,10 @@
 package com.cc.backend.service.impl;
 
+import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cc.backend.common.Eume.RoleEume;
+import com.cc.backend.dao.entity.Role;
 import com.cc.backend.dao.entity.SysUser;
 import com.cc.backend.dao.entity.UserPermission;
 import com.cc.backend.dao.entity.UserRole;
@@ -60,6 +62,7 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         return sysUser;
     }
 
+
     public void generRole(Long userId){
         //1、新用户默认普通用户角色
         UserRole userRole = new UserRole(RoleEume.USER);
@@ -78,6 +81,13 @@ public class SysUserServiceImpl extends ServiceImpl<SysUserMapper, SysUser> impl
         // 下面的权限可自定义
 
 
+    }
+
+
+    @Override
+    public Long getRoleId(Long uid) {
+        UserRole userRole = userRoleMapper.selectOne(new LambdaQueryWrapper<UserRole>().eq(UserRole::getUid, uid));
+        return userRole.getRid();
     }
 
 
