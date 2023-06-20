@@ -6,7 +6,8 @@ public enum StatusCode {
     METHOD_ARGUMENT_NOT_VALID("100001","参数异常"),
     NOT_FOUND("100002","资源未找到"),
     NO_AUTH("100003","没有权限，请先登录！"),
-    PASSWORD_WRONG("100004","密码错误！");
+    PASSWORD_WRONG("100004","密码错误！"),
+    TOKEN_ERROR("100005","token错误！");
 
     public String code;
     public String msg;

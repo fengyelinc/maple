@@ -37,6 +37,9 @@ public class GlobalExceptionHandler {
         if ("notLogin".equals(e.getMessage())) {
             ResultData resultData = new ResultData(StatusCode.NO_AUTH.getCode(),StatusCode.NO_AUTH.getMsg());
             return resultData;
+        }else if("token error".equals(e.getMessage())){
+            ResultData resultData = new ResultData(StatusCode.TOKEN_ERROR.getCode(),StatusCode.TOKEN_ERROR.getMsg());
+            return resultData;
         }
         ResultData data = new ResultData(StatusCode.FAIL.getCode(), e.getMessage());
         return data;

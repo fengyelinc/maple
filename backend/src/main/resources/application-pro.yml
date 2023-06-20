@@ -1,0 +1,58 @@
+server:
+  port: 9091
+  servlet:
+    context-path: /     #web启动动时，项目的名称
+  tomcat:
+    uri-encoding: UTF-8     #配置tomcat的请求编码
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://101.132.123.133:3310/maple?useUnicode=true&characterEncoding=utf8&useSSL=false&tinyInt1isBit=true&serverTimezone=Asia/Shanghai
+    username: root
+    password: 1234556
+    druid:
+      validationQuery: SELECT 1
+      initialSize: 10
+      minIdle: 10
+      maxActive: 200
+      minEvictableIdleTimeMillis: 180000
+      testOnBorrow: false
+      testWhileIdle: true
+      removeAbandoned: true
+      removeAbandonedTimeout: 1800
+      logAbandoned: true
+      poolPreparedStatements: true
+      maxOpenPreparedStatements: 100
+  #视图配置
+  mvc:
+    static-path-pattern: /static/**
+    pathmatch:
+      matching-strategy: ant_path_matcher
+  redis:
+    port: 3320
+    host: 101.132.123.133
+    database: 0
+
+#mybatisPlus
+mybatis-plus:
+  mapper-locations: classpath:mapper/*.xml,classpath:mapper/**/*.xml
+  #实体扫描，多个package用逗号或者分号隔离
+  typeAliasesPackage: com.example.*.entity
+  global-config:
+    db-config:
+      id-type: auto
+      insert-strategy: not_empty
+      update-strategy: not_empty
+      table-underline: true
+  configuration:
+    map-underscore-to-camel-case: true
+    cache-enabled: false
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+#log4j2
+logging:
+  config: classpath:log4j2.xml
+#是否开启权限
+permission:
+  open: true

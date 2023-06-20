@@ -11,6 +11,83 @@
               <option name="name" value="Default Group" />
               <option name="type" value="1" />
             </CollectionDetail>
+            <CollectionDetail>
+              <option name="childList">
+                <list>
+                  <CollectionDetail>
+                    <option name="childList">
+                      <list>
+                        <CollectionDetail>
+                          <option name="domain" value="localhost:9090" />
+                          <option name="enableEnv" value="dev" />
+                          <option name="enableProject" value="maple" />
+                          <option name="id" value="id_com.cc.backend.controller.auth.MenuController.getList" />
+                          <option name="name" value="New Request" />
+                          <option name="paramGroup">
+                            <ParamGroupCollection>
+                              <option name="bodyKeyValueListJson" value="" />
+                              <option name="className" value="com.cc.backend.controller.auth.MenuController" />
+                              <option name="method" value="getList" />
+                              <option name="methodDescription" value="New Request" />
+                              <option name="methodType" value="GET" />
+                              <option name="multipartKeyValueListJson" value="[]" />
+                              <option name="originUrl" value="/menu/list/{uid}" />
+                              <option name="pathParamsKeyValueListJson" value="[{&quot;customFlag&quot;:2,&quot;enabled&quot;:true,&quot;key&quot;:&quot;uid&quot;,&quot;type&quot;:&quot;Number&quot;,&quot;value&quot;:&quot;1&quot;}]" />
+                              <option name="url" value="/menu/list/1" />
+                              <option name="urlEncodedKeyValueListJson" value="[]" />
+                              <option name="urlEncodedKeyValueListText" value="" />
+                              <option name="urlParamsKeyValueListJson" value="[]" />
+                              <option name="urlParamsKeyValueListText" value="" />
+                            </ParamGroupCollection>
+                          </option>
+                          <option name="type" value="2" />
+                        </CollectionDetail>
+                      </list>
+                    </option>
+                    <option name="id" value="20230620162735297" />
+                    <option name="name" value="MenuController" />
+                    <option name="type" value="1" />
+                  </CollectionDetail>
+                  <CollectionDetail>
+                    <option name="childList">
+                      <list>
+                        <CollectionDetail>
+                          <option name="domain" value="localhost:9090" />
+                          <option name="enableEnv" value="dev" />
+                          <option name="enableProject" value="maple" />
+                          <option name="id" value="id_com.cc.backend.controller.LoginController.login" />
+                          <option name="name" value="账号密码登录" />
+                          <option name="paramGroup">
+                            <ParamGroupCollection>
+                              <option name="bodyKeyValueListJson" value="{&#10;  &quot;account&quot;: &quot;fengyelinc@163.com&quot;,&#10;  &quot;password&quot;: &quot;root123&quot;&#10;}" />
+                              <option name="className" value="com.cc.backend.controller.LoginController" />
+                              <option name="method" value="login" />
+                              <option name="methodDescription" value="账号密码登录" />
+                              <option name="methodType" value="POST" />
+                              <option name="multipartKeyValueListJson" value="[]" />
+                              <option name="originUrl" value="/login" />
+                              <option name="pathParamsKeyValueListJson" value="[]" />
+                              <option name="url" value="/login" />
+                              <option name="urlEncodedKeyValueListJson" value="[]" />
+                              <option name="urlEncodedKeyValueListText" value="" />
+                              <option name="urlParamsKeyValueListJson" value="[]" />
+                              <option name="urlParamsKeyValueListText" value="" />
+                            </ParamGroupCollection>
+                          </option>
+                          <option name="type" value="2" />
+                        </CollectionDetail>
+                      </list>
+                    </option>
+                    <option name="id" value="20230620162830867" />
+                    <option name="name" value="LoginController" />
+                    <option name="type" value="1" />
+                  </CollectionDetail>
+                </list>
+              </option>
+              <option name="id" value="20230620162735297" />
+              <option name="name" value="backend" />
+              <option name="type" value="1" />
+            </CollectionDetail>
           </list>
         </option>
         <option name="groupId" value="-1" />

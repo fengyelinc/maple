@@ -1,4 +1,4 @@
-package com.cc.backend.controller;
+package com.cc.backend.controller.auth;
 
 
 import com.cc.backend.common.ResultData;

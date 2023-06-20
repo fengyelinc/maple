@@ -2,7 +2,6 @@ package com.cc.backend.common.utils;
 
 import sun.misc.BASE64Decoder;
 import sun.misc.BASE64Encoder;
-
 import java.security.Key;
 import java.security.KeyPair;
 import java.security.KeyPairGenerator;
@@ -65,6 +64,7 @@ public class SecretKeyHelper {
     public static Map<String, Object> initKey() throws Exception {
         /* RSA算法要求有一个可信任的随机数源 */
         //获得对象 KeyPairGenerator 参数 RSA 1024个字节
+        //每次项目重以后都会重新生成新的公私钥!!!!!!!
         KeyPairGenerator keyPairGen = KeyPairGenerator.getInstance(KEY_ALGORITHM);
         keyPairGen.initialize(1024);
 

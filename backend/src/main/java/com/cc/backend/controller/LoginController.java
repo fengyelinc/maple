@@ -81,9 +81,12 @@ public class LoginController {
         }
         //2、获取身份信息(基础信息，权限) todo 权限设计
         //3、生成token
-        generToken(sysUser);
+        String token = generToken(sysUser);
         resultData.setCode(StatusCode.SUCCESS.getCode());
         resultData.setMsg(StatusCode.SUCCESS.getMsg());
+        HashMap<String, Object> map = new HashMap<>();
+        map.put("token", token);
+        resultData.setData(map);
         return resultData;
     }
 

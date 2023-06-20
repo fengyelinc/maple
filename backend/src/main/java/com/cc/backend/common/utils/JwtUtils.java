@@ -33,16 +33,16 @@ public class JwtUtils {
         return JWT.create()
                 .withIssuer(SECRET_KEY)   		//发布者
                 .withAudience(audience)     //观众，相当于接受者
-                .withIssuedAt(new Date())   // 生成签名的时间
+//                .withIssuedAt(new Date())   // 生成签名的时间
 //                .withExpiresAt(DateHelper.addMinute(new Date(),30))// 生成签名的有效期
                 .withClaim("data", JSON.toJSONString(t)) //存数据
-                .withNotBefore(new Date())  //生效时间
-                .withJWTId(UUID.randomUUID().toString())    //编号
+//                .withNotBefore(new Date())  //生效时间
+//                .withJWTId(UUID.randomUUID().toString())    //编号
                 .sign(algorithm);							//签入
     }
 
     /*验证token*/
-    public static DecodedJWT verifierToken(String token)throws Exception{
+    public static DecodedJWT verifierToken(String token) throws Exception {
         RSA256Key rsa256Key = SecretKeyHelper.getRSA256Key(); // 获取公钥/私钥
         //其实按照规定只需要传递 publicKey来校验即可,这可能是auth0 的缺点
         Algorithm algorithm = Algorithm.RSA256(rsa256Key.getPublicKey(), rsa256Key.getPrivateKey());
@@ -56,6 +56,20 @@ public class JwtUtils {
     public static SysUser getUserInfo(String token) throws Exception {
         DecodedJWT jwt = verifierToken(token);
         return JSON.parseObject(jwt.getClaim("data").asString(), SysUser.class);
+    }
+
+    public static void main(String[] args) throws Exception {
+        SysUser user = new SysUser();
+        user.setId(1l);
+        user.setAccount("fengyelinc@163.com");
+        user.setEmail("fengyelinc@163.com");
+        user.setUsername("cc");
+        user.setPhone("15895060076");
+        user.setPassword("root123");
+        String token = generTokenByRS256(user);
+        System.out.println("token------: "+token);
+        SysUser userInfo = getUserInfo(token);
+        System.out.println(userInfo.getAccount());
     }
 
 
