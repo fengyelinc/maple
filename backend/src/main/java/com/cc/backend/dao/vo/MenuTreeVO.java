@@ -6,7 +6,7 @@ import lombok.Data;
 import java.util.ArrayList;
 import java.util.List;
 @Data
-public class MenuTree {
+public class MenuTreeVO {
     private Menu menu;
-    private List<MenuTree> children =new ArrayList<>();
+    private List<MenuTreeVO> children =new ArrayList<>();
 }

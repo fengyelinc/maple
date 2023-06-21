@@ -4,7 +4,7 @@ import cn.hutool.core.collection.CollectionUtil;
 import com.baomidou.mybatisplus.core.conditions.query.LambdaQueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.cc.backend.dao.entity.Menu;
-import com.cc.backend.dao.vo.MenuTree;
+import com.cc.backend.dao.vo.MenuTreeVO;
 import com.cc.backend.mapper.MenuMapper;
 import com.cc.backend.service.MenuService;
 import lombok.extern.slf4j.Slf4j;
@@ -34,49 +34,49 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
      * @return
      */
     @Override
-    public List<MenuTree> getListByRid(Long roleId) {
+    public List<MenuTreeVO> getListByRid(Long roleId) {
         List<Menu> menuList = menuMapper.selectList(new LambdaQueryWrapper<Menu>().eq(Menu::getRid, roleId));
-        Map<Long, MenuTree> menuMap = new HashMap<>();
-        List<MenuTree> parnetTree = new ArrayList<>();
+        Map<Long, MenuTreeVO> menuMap = new HashMap<>();
+        List<MenuTreeVO> parnetTree = new ArrayList<>();
         // 获取所有顶级菜单
         for (Menu menu : menuList) {
-            MenuTree menuTree = new MenuTree();
-            menuTree.setMenu(menu);
-            menuMap.put(menu.getId(),menuTree );
+            MenuTreeVO menuTreeVO = new MenuTreeVO();
+            menuTreeVO.setMenu(menu);
+            menuMap.put(menu.getId(), menuTreeVO);
             Long parentId = menu.getParentId();
             // 如果当前菜单项没有父级，将其添加到根列表中
             if (parentId == 0) {
-                parnetTree.add(menuTree);
+                parnetTree.add(menuTreeVO);
             }
         }
         buildClildTree(parnetTree,menuList);
         return parnetTree;
     }
 
-    public List<MenuTree> buildClildTree(List<MenuTree> parnetTree,List<Menu> menuList){
-        for(MenuTree menuTree:parnetTree){
+    public List<MenuTreeVO> buildClildTree(List<MenuTreeVO> parnetTree, List<Menu> menuList){
+        for(MenuTreeVO menuTreeVO :parnetTree){
             // 递归出口
             if(CollectionUtil.isEmpty(menuList)){
                 break;
             }
             // 筛选出子节点
             List<Menu> clildList = menuList.stream()
-                    .filter(x -> x.getParentId() == menuTree.getMenu().getId())
+                    .filter(x -> x.getParentId() == menuTreeVO.getMenu().getId())
                     .collect(Collectors.toList());
-            List<MenuTree> childs = convertToMeunTree(clildList);
+            List<MenuTreeVO> childs = convertToMeunTree(clildList);
             if(CollectionUtil.isNotEmpty(clildList)) {
-                menuTree.setChildren(childs);
-                menuList.removeIf(x -> x.getId() == menuTree.getMenu().getId()); //将已使用的父节点踢出menuList
+                menuTreeVO.setChildren(childs);
+                menuList.removeIf(x -> x.getId() == menuTreeVO.getMenu().getId()); //将已使用的父节点踢出menuList
                 buildClildTree(childs, menuList);
             }
         }
         return parnetTree;
     }
 
-    public List<MenuTree> convertToMeunTree(List<Menu> clildList){
-        List<MenuTree> next = new ArrayList<>();
+    public List<MenuTreeVO> convertToMeunTree(List<Menu> clildList){
+        List<MenuTreeVO> next = new ArrayList<>();
         clildList.forEach(x -> {
-            MenuTree tree = new MenuTree();
+            MenuTreeVO tree = new MenuTreeVO();
             tree.setMenu(x);
             next.add(tree);
         });

@@ -21,6 +21,14 @@
                           <option name="domain" value="localhost:9090" />
                           <option name="enableEnv" value="dev" />
                           <option name="enableProject" value="maple" />
+                          <option name="headerList">
+                            <list>
+                              <DataMapping>
+                                <option name="type" value="token" />
+                                <option name="value" value="666" />
+                              </DataMapping>
+                            </list>
+                          </option>
                           <option name="id" value="id_com.cc.backend.controller.auth.MenuController.getList" />
                           <option name="name" value="New Request" />
                           <option name="paramGroup">
