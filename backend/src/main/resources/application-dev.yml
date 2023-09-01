@@ -30,9 +30,10 @@ spring:
     pathmatch:
       matching-strategy: ant_path_matcher
   redis:
-    port: 3320
-    host: 101.132.123.133
+    port: 6379
+    host: 127.0.0.1
     database: 0
+    password: 123456
 
 #mybatisPlus
 mybatis-plus:

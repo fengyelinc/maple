@@ -1,4 +1,4 @@
-package com.cc.backend.common.config;
+package com.cc.backend.common.delayqueue;
 
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
@@ -10,7 +10,6 @@ import org.springframework.context.annotation.Configuration;
 /**
  * 创建 RedissonConfig 配置
  * <p>
- * Created by michael on 2021-04-25.
  */
 @Configuration
 public class RedissonConfig {
@@ -24,15 +23,16 @@ public class RedissonConfig {
     @Value("${spring.redis.database}")
     private int database;
 
-//    @Value("${spring.redis.password}")
-//    private String password;
+    @Value("${spring.redis.password}")
+    private String password;
 
     @Bean
     public RedissonClient redissonClient() {
         Config config = new Config();
         config.useSingleServer()
                 .setAddress("redis://" + host + ":" + port)
-                .setDatabase(database);
+                .setDatabase(database)
+                .setPassword(password);
         return Redisson.create(config);
     }
 }

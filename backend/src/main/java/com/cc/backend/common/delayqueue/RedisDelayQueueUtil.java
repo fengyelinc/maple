@@ -1,4 +1,4 @@
-package com.cc.backend.common.utils;
+package com.cc.backend.common.delayqueue;
 
 import lombok.extern.slf4j.Slf4j;
 import org.redisson.api.RBlockingDeque;
@@ -53,7 +53,7 @@ public class RedisDelayQueueUtil {
      */
     public <T> T getDelayQueue(String queueCode) throws InterruptedException {
         RBlockingDeque<Map> blockingDeque = redissonClient.getBlockingDeque(queueCode);
-        T value = (T) blockingDeque.take();
+        T value = (T) blockingDeque.poll();
         return value;
     }
 }
