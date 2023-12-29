@@ -13,9 +13,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 public enum RedisDelayQueue {
 
-    ORDER_PAYMENT_TIMEOUT("ORDER_PAYMENT_TIMEOUT", "订单支付超时，自动取消订单", "orderPaymentTimeout"),
-
-    ORDER_TIMEOUT_NOT_EVALUATED("ORDER_TIMEOUT_NOT_EVALUATED", "订单超时未评价，系统默认好评", "orderTimeoutNotEvaluated"),
+   PUBLISH_WORK_TIMEOUT("PUBLISH_WORK_TIMEOUT", "发布超时", "publishWorkTimeout"),
 
     ;
 

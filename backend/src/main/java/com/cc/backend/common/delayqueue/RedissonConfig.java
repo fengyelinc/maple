@@ -1,5 +1,6 @@
 package com.cc.backend.common.delayqueue;
 
+import cn.hutool.core.util.StrUtil;
 import org.redisson.Redisson;
 import org.redisson.api.RedissonClient;
 import org.redisson.config.Config;
@@ -23,6 +24,9 @@ public class RedissonConfig {
     @Value("${spring.redis.database}")
     private int database;
 
+    /**
+     * 线上注释掉这行代码
+     */
     @Value("${spring.redis.password}")
     private String password;
 
@@ -31,8 +35,11 @@ public class RedissonConfig {
         Config config = new Config();
         config.useSingleServer()
                 .setAddress("redis://" + host + ":" + port)
-                .setDatabase(database)
-                .setPassword(password);
+                .setDatabase(database);
+
+        if (StrUtil.isNotBlank(password)) {
+            config.useSingleServer().setPassword(password);
+        }
         return Redisson.create(config);
     }
 }
