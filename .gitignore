@@ -1,6 +1,7 @@
 ### Java template
 # Compiled class file
 *.class
+*.classpath
 
 # Log file
 *.log
@@ -28,6 +29,27 @@ hs_err_pid*
 
 # IntelliJ project files
 .idea
+.vscode
 *.iml
 out
 gen
+
+target/
+
+*.project
+.settings/
+.DS_Store
+
+
+
+# virtual machine crash logs
+/bin
+/.apt_generated/
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.idea/
+logs/

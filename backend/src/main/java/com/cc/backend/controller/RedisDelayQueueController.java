@@ -33,9 +33,8 @@ public class RedisDelayQueueController {
         map2.put("remark", "订单超时未评价，系统默认好评");
 
         // 添加订单支付超时，自动取消订单延迟队列。为了测试效果，延迟10秒钟
-        redisDelayQueueUtil.addDelayQueue(map1, 10, TimeUnit.SECONDS, RedisDelayQueue.ORDER_PAYMENT_TIMEOUT.getCode());
+        redisDelayQueueUtil.addDelayQueue(map1, 10, TimeUnit.SECONDS, RedisDelayQueue.PUBLISH_WORK_TIMEOUT.getCode());
 
-        // 订单超时未评价，系统默认好评。为了测试效果，延迟20秒钟
-        redisDelayQueueUtil.addDelayQueue(map2, 20, TimeUnit.SECONDS, RedisDelayQueue.ORDER_PAYMENT_TIMEOUT.getCode());
+
     }
 }
