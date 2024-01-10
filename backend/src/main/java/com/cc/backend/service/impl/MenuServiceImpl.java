@@ -25,17 +25,20 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
 
     /**
      * [
-     *  {id:
-     *   url:
-     *   childern:[{},{}]
-     *   },
+     * {id:
+     * url:
+     * childern:[{},{}]
+     * },
      * ]
+     *
      * @param roleId
      * @return
      */
     @Override
     public List<MenuTreeVO> getListByRid(Long roleId) {
-        List<Menu> menuList = menuMapper.selectList(new LambdaQueryWrapper<Menu>().eq(Menu::getRid, roleId));
+        List<Menu> menuList = menuMapper.selectList(new LambdaQueryWrapper<Menu>()
+                .eq(Menu::getIsDel, 0)
+                .eq(Menu::getRid, roleId));
         Map<Long, MenuTreeVO> menuMap = new HashMap<>();
         List<MenuTreeVO> parnetTree = new ArrayList<>();
         // 获取所有顶级菜单
@@ -49,14 +52,14 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
                 parnetTree.add(menuTreeVO);
             }
         }
-        buildClildTree(parnetTree,menuList);
+        buildClildTree(parnetTree, menuList);
         return parnetTree;
     }
 
-    public List<MenuTreeVO> buildClildTree(List<MenuTreeVO> parnetTree, List<Menu> menuList){
-        for(MenuTreeVO menuTreeVO :parnetTree){
+    public List<MenuTreeVO> buildClildTree(List<MenuTreeVO> parnetTree, List<Menu> menuList) {
+        for (MenuTreeVO menuTreeVO : parnetTree) {
             // 递归出口
-            if(CollectionUtil.isEmpty(menuList)){
+            if (CollectionUtil.isEmpty(menuList)) {
                 break;
             }
             // 筛选出子节点
@@ -64,7 +67,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
                     .filter(x -> x.getParentId() == menuTreeVO.getMenu().getId())
                     .collect(Collectors.toList());
             List<MenuTreeVO> childs = convertToMeunTree(clildList);
-            if(CollectionUtil.isNotEmpty(clildList)) {
+            if (CollectionUtil.isNotEmpty(clildList)) {
                 menuTreeVO.setChildren(childs);
                 menuList.removeIf(x -> x.getId() == menuTreeVO.getMenu().getId()); //将已使用的父节点踢出menuList
                 buildClildTree(childs, menuList);
@@ -73,7 +76,7 @@ public class MenuServiceImpl extends ServiceImpl<MenuMapper, Menu> implements Me
         return parnetTree;
     }
 
-    public List<MenuTreeVO> convertToMeunTree(List<Menu> clildList){
+    public List<MenuTreeVO> convertToMeunTree(List<Menu> clildList) {
         List<MenuTreeVO> next = new ArrayList<>();
         clildList.forEach(x -> {
             MenuTreeVO tree = new MenuTreeVO();

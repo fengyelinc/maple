@@ -11,7 +11,6 @@ public class RegisterInfoDTO {
 
     @NotBlank(message = "邮箱不能为空")
     @Email(message = "邮箱格式不正确")
-//    @Pattern(regexp = "^[A-Za-z0-9+_.-]+@(.+)$", message = "请输入正确的邮箱地址")
     private String email;
 
     @NotBlank(message = "手机号不能为空")
@@ -19,9 +18,9 @@ public class RegisterInfoDTO {
     private String phone;
 
     @NotBlank(message = "密码不能为空")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?]).{8,16}$", message = "密码不符合规则")
     private String password;
 
-//    @NotNull(message = "验证码不能为空")
     @Digits(integer = 6, fraction = 0)
     private Integer verificationCode;
 }
