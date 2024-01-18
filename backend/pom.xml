@@ -25,6 +25,7 @@
         <poi.version>3.16</poi.version>
         <swagger.version>2.9.2</swagger.version>
         <java-jwt.version>3.9.0</java-jwt.version>
+        <hutool.version>5.8.0</hutool.version>
     </properties>
 
     <repositories>
@@ -40,6 +41,12 @@
             <groupId>com.alibaba</groupId>
             <artifactId>fastjson</artifactId>
             <version>${fastjson.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>${hutool.version}</version>
         </dependency>
 
         <dependency>
