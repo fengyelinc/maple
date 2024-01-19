@@ -59,3 +59,13 @@ logging:
 #是否开启权限
 permission:
   open: true
+
+mica:
+  xss:
+    enabled: true
+    path-patterns: /**
+    exclude-patterns:
+    trim-text: true
+    enable-escape: false # clear专用转义，默认关闭
+    mode: clear # 模式：clear 清理（默认），escape 转义
+    pretty-print: false # clear专用 prettyPrint，默认关闭： 保留换行

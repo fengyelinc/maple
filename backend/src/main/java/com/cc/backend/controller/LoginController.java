@@ -10,10 +10,12 @@ import com.cc.backend.dao.dto.LoginInfoDTO;
 import com.cc.backend.dao.dto.RegisterInfoDTO;
 import com.cc.backend.service.LoginService;
 import com.cc.backend.service.SysUserService;
+import net.dreamlu.mica.xss.core.XssCleanIgnore;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 
@@ -116,6 +118,14 @@ public class LoginController {
             e.printStackTrace();
         }
         return token;
+    }
+
+
+    @PostMapping("/xss")
+    @XssCleanIgnore
+    public String index(@RequestBody Map<String, Object> xss){
+        String data = xss.get("data").toString();
+        return data;
     }
 
 }
