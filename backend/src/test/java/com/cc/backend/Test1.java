@@ -17,7 +17,12 @@ import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
-@SpringBootTest
+/**
+ * 通过查阅资料得知，这是因为在启动单元测试时，SpringBootTest不会启动服务器，
+ * WebSocket自然也就没有启动，但是在代码里又配置了WebSocket，就会出错
+ * 解决方式：在SprintBootTest里加上一段配置，指定一个Web环境，值为随机端口。
+ */
+@SpringBootTest(webEnvironment = SpringBootTest.WebEnvironment.RANDOM_PORT)
 public class Test1 {
 
     @Autowired
